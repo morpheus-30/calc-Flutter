@@ -34,11 +34,16 @@ class _CalculatorState extends State<Calculator> {
           .toString();
     } else if (choosenOperation == '**') {
       num ans = CalculatorFunctions(fno: a, sno: b).exp();
-      if (ans>999999999 || ans<-999999999 || ans==0) {
+      if (b < 0) {
+        result = 'Power should be Positive';
+      }else{
+        if (ans > 999999999 || ans < -999999999 || ans == 0) {
         result = 'Too Large To Display';
       } else {
         result = ans.toStringAsFixed(2);
       }
+      }
+      
     }
   }
 
@@ -107,7 +112,6 @@ class _CalculatorState extends State<Calculator> {
                   },
                 ),
                 Text(
-                  
                   result,
                   textAlign: TextAlign.center,
                   style: TextStyle(
