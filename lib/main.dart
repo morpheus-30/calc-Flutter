@@ -34,7 +34,7 @@ class _CalculatorState extends State<Calculator> {
           .toString();
     } else if (choosenOperation == '**') {
       num ans = CalculatorFunctions(fno: a, sno: b).exp();
-      if (ans>999999999 || ans<-999999999) {
+      if (ans>999999999 || ans<-999999999 || ans==0) {
         result = 'Too Large To Display';
       } else {
         result = ans.toStringAsFixed(2);
